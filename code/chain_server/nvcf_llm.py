@@ -33,7 +33,7 @@ class NvcfLLM(LLM):
 
     def _wait_for_fullfill(self, reqID, headers):
         url = "https://api.nvcf.nvidia.com/v2/nvcf/exec/status/" + reqID
-        response = requests.get(url, headers=headers)
+        response = requests.get(url, headers=headers,timeout=300)
 
         content = None
         if response.status_code == 200:
